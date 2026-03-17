@@ -3,8 +3,11 @@
   "private": true,
   "scripts": {
     "build": "pnpm -r build",
-    "dev": "pnpm -r --parallel dev",
+    "dev": "concurrently \"pnpm --filter server dev\" \"pnpm --filter client dev\"",
     "typecheck": "pnpm -r typecheck"
   },
-  "packageManager": "pnpm@10.32.1"
+  "packageManager": "pnpm@10.32.1",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
 }
